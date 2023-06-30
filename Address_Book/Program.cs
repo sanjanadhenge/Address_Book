@@ -12,41 +12,37 @@ namespace Address_Book
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To Address Book ");
-            AddressBookOperations addressbook = new AddressBookOperations();
+            AddressBookOperations addNew = new AddressBookOperations();
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Select Option \n1. Add Contact\n 2.Edit Contact\n 3.Delete Contact\n 4.Serach using city \n 5.Exit");
+                Console.WriteLine("Select Option \n1. Add Contact\n 2.Edit Contact\n 3.Delete Contact\n 4.Serach using city \n 5.Display City List Or State List \n 6.Get No of Contact by City or State n 7.Sort Dictionary using persons name \n 8.Sort Dictionary by city ,state or Zipcode \n 9.ReadFile \n 10.Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
-                {
-                        Console.WriteLine("Select Option \n1. Add Contact\n 2.Edit Contact\n 3.Delete Contact\n 4.Serach using city \n 5.Display City List Or State List \n 6.Get No of Contact by City or State n 7.Sort Dictionary using persons name \n 8.Sort Dictionary by city ,state or Zipcode \n 9.Exit");
-                         int option1 = Convert.ToInt32(Console.ReadLine());
-                switch (option1)
                 {
                     case 1:
                         Console.WriteLine("Enter the number of Address book you want to add");
                         int N = Convert.ToInt32(Console.ReadLine());
                         for (int i = 0; i < N; i++)
                         {
-                            addressbook.AddToDict();
+                            addNew.AddToDict();
                         }
-                        addressbook.DisplayData();
+                        addNew.DisplayData();
                         break;
                     case 2:
                         Console.WriteLine("Enter UniqueName");
                         string unique = Console.ReadLine();
                         Console.WriteLine("Enter Name");
                         string name = Console.ReadLine();
-                        addressbook.Edit(name, unique);
+                        addNew.Edit(name, unique);
                         break;
                     case 3:
                         Console.WriteLine("Enter UniqueName");
                         string unique1 = Console.ReadLine();
                         Console.WriteLine("Enter Name");
                         string name1 = Console.ReadLine();
-                        addressbook.Delete(name1, unique1);
-                        addressbook.DisplayData();
+                        addNew.Delete(name1, unique1);
+                        addNew.DisplayData();
                         break;
                     case 4:
                         bool f = true;
@@ -59,12 +55,12 @@ namespace Address_Book
                                 case 1:
                                     Console.WriteLine("Enter Name of city");
                                     string city = Console.ReadLine();
-                                    addressbook.SearchByCity(city);
+                                    addNew.SearchByCity(city);
                                     break;
                                 case 2:
                                     Console.WriteLine("Enter Name of state");
                                     string state = Console.ReadLine();
-                                    addressbook.SearchByState(state);
+                                    addNew.SearchByState(state);
                                     break;
                                 case 3:
                                     f = false;
@@ -72,7 +68,6 @@ namespace Address_Book
                             }
 
                         }
-
 
                         break;
                     case 5:
@@ -84,10 +79,10 @@ namespace Address_Book
                             switch (opt)
                             {
                                 case 1:
-                                    addressbook.DisplayCity();
+                                    addNew.DisplayCity();
                                     break;
                                 case 2:
-                                    addressbook.DisplayState();
+                                    addNew.DisplayState();
                                     break;
                                 case 3:
                                     f2 = false;
@@ -107,12 +102,12 @@ namespace Address_Book
                                 case 1:
                                     Console.WriteLine("Enter Name of city");
                                     string cityName = Console.ReadLine();
-                                    addressbook.ByCity(cityName);
+                                    addNew.ByCity(cityName);
                                     break;
                                 case 2:
                                     Console.WriteLine("Enter Name of State");
                                     string stateName = Console.ReadLine();
-                                    addressbook.ByState(stateName);
+                                    addNew.ByState(stateName);
                                     break;
                                 case 3:
                                     f3 = false;
@@ -122,38 +117,41 @@ namespace Address_Book
                         }
                         break;
                     case 7:
-                        addressbook.SortDict();
+                        addNew.SortDict();
                         break;
                     case 8:
-                        bool flag3 = true;
-                        while (flag3)
+                        bool f4 = true;
+                        while (f4)
                         {
                             Console.WriteLine("Select an Option \n 1.Sort By City \n 2..Sort by State \n 3.Sort by ZipCode \n 4.Exit");
                             int opt = Convert.ToInt32(Console.ReadLine());
                             switch (opt)
                             {
                                 case 1:
-                                    addressbook.SortCity();
+                                    addNew.SortCity();
                                     break;
                                 case 2:
-                                    addressbook.SortState();
+                                    addNew.SortState();
                                     break;
                                 case 3:
-                                    addressbook.SortZip();
+                                    addNew.SortZip();
                                     break;
                                 case 4:
-                                    f3 = false;
+                                    f4 = false;
                                     break;
                             }
 
                         }
                         break;
                     case 9:
+                        addNew.ReadFile(@"C:\Users\SOURABH\Desktop\RFP\Address_Book\Address_Book\TextFile1.txt");
+                        break;
+                    case 10:
                         flag = false;
                         break;
+
+
                 }
-            
-            
             }
         }
     }

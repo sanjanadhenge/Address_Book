@@ -50,6 +50,33 @@ namespace Address_Book
 
             }
             dict.Add(key, Data);
+            WriteToFile(@"C:\Users\SOURABH\Desktop\RFP\Address_Book\Address_Book\TextFile1.txt");
+        }
+        public void WriteToFile(string filePath)
+        {
+            using (StreamWriter sr = new StreamWriter(filePath))
+            {
+                foreach (var data in dict)
+                {
+                    sr.WriteLine("Key------------>" + data.Key);
+                    foreach (var item in data.Value)
+                    {
+                        sr.WriteLine("First Name :" + item.FirstName + "\n" + "Last Name :" + item.LastName + "\n" + "Address :" + item.Address + "\n" + "City :" + item.City + "\n" + "State :" + item.State + "\n" + "Zip Code :" + item.zip + "\n" + "Phone Number :" + item.PhoneNumber + "\n" + "Mail Id :" + item.Email);
+                    }
+
+
+                }
+            }
+        }
+        public void ReadFile(string filePath)
+        {
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                while (sr.ReadLine() != null)
+                {
+                    Console.WriteLine(sr.ReadLine());
+                }
+            }
         }
 
         public void AddToDict()

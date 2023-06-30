@@ -71,6 +71,54 @@ namespace Address_Book
 
                         break;
                     case 5:
+                        bool f2 = true;
+                        while (f2)
+                        {
+                            Console.WriteLine("Select an Option \n 1.Data using City \n 2.Data using State \n 3.Exit");
+                            int opt = Convert.ToInt32(Console.ReadLine());
+                            switch (opt)
+                            {
+                                case 1:
+                                    addressbook.DisplayCity();
+                                    break;
+                                case 2:
+                                    addressbook.DisplayState();
+                                    break;
+                                case 3:
+                                    f2 = false;
+                                    break;
+                            }
+
+                        }
+                        break;
+                    case 6:
+                        bool f3 = true;
+                        while (f3)
+                        {
+                            Console.WriteLine("Select an Option \n 1.Get no of Contact by city \n 2..Get no of Contact by city \n 3.Exit");
+                            int opt = Convert.ToInt32(Console.ReadLine());
+                            switch (opt)
+                            {
+                                case 1:
+                                    Console.WriteLine("Enter Name of city");
+                                    string cityName = Console.ReadLine();
+                                    addressbook.ByCity(cityName);
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Enter Name of State");
+                                    string stateName = Console.ReadLine();
+                                    addressbook.ByState(stateName);
+                                    break;
+                                case 3:
+                                    f3 = false;
+                                    break;
+                            }
+
+                        }
+                        break;
+                    case 7:
+                        flag = false;
+                        break;
                         flag = false;
                         break;
                 }

@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -54,6 +55,7 @@ namespace Address_Book
             dict.Add(key, Data);
             WriteToFile(@"C:\Users\SOURABH\Desktop\RFP\Address_Book\Address_Book\TextFile1.txt");
             WriteFileCSV(@"C:\Users\SOURABH\Desktop\RFP\Address_Book\Address_Book\Data.csv");
+            WriteToJson(@"C:\Users\SOURABH\Desktop\RFP\Address_Book\Address_Book\Data.json");
         }
         public void WriteToFile(string filePath)
         {
@@ -88,6 +90,22 @@ namespace Address_Book
             {
                 contacts = csv.GetRecords<Contact>().ToList();
                 foreach (var item in contacts)
+                {
+                    Console.WriteLine("First Name :" + item.FirstName + "\n" + "Last Name :" + item.LastName + "\n" + "Address :" + item.Address + "\n" + "City :" + item.City + "\n" + "State :" + item.State + "\n" + "Zip Code :" + item.zip + "\n" + "Phone Number :" + item.PhoneNumber + "\n" + "Mail Id :" + item.Email);
+                }
+            }
+        }
+        public void WriteToJson(string filePath)
+        {
+            var json = JsonConvert.SerializeObject(dict);
+            File.WriteAllText(filePath, json);
+        }
+        public void ReadJson(string filePath)
+        {
+            Dictionary<string, List<Contact>> records = JsonConvert.DeserializeObject<Dictionary<string, List<Contact>>>(File.ReadAllText(filePath));
+            foreach (var data in records)
+            {
+                foreach (var item in data.Value)
                 {
                     Console.WriteLine("First Name :" + item.FirstName + "\n" + "Last Name :" + item.LastName + "\n" + "Address :" + item.Address + "\n" + "City :" + item.City + "\n" + "State :" + item.State + "\n" + "Zip Code :" + item.zip + "\n" + "Phone Number :" + item.PhoneNumber + "\n" + "Mail Id :" + item.Email);
                 }

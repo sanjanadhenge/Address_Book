@@ -12,6 +12,8 @@ namespace Address_Book
         Contact contact = new Contact();
 
         Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>();
+        public Dictionary<string, List<Contact>> city = new Dictionary<string, List<Contact>>();
+        public Dictionary<string, List<Contact>> state = new Dictionary<string, List<Contact>>();
         char c = 'A';
         public void Add(int N, string key)
         {
@@ -37,10 +39,15 @@ namespace Address_Book
                 Console.WriteLine("Enter email");
                 contact.Email = Console.ReadLine();
                 Data.Add(contact);
+                var result2 = Data.Where(x => x.City.Equals(contact.City)).ToList();
+                city.Add(contact.City, result2);
+                var result3 = Data.Where(x => x.State.Equals(contact.State)).ToList();
+                state.Add(contact.State, result3);
 
             }
             dict.Add(key, Data);
         }
+
         public void AddToDict()
         {
 
@@ -58,6 +65,16 @@ namespace Address_Book
 
             Add(n, uniqueName);
             c++;
+        }
+        public void DisplayCity()
+        {
+            Console.WriteLine("City Data------------------------>");
+            DisplayData(city);
+        }
+        public void DisplayState()
+        {
+            Console.WriteLine("State Data----------------------->");
+            DisplayData(state);
         }
         public bool IsContactExists(string name)
         {
@@ -100,6 +117,19 @@ namespace Address_Book
                 }
             }
 
+        }
+        public void DisplayData(Dictionary<string, List<Contact>> dict)
+        {
+            foreach (var data in dict)
+            {
+                Console.WriteLine("Key------------>" + data.Key);
+                foreach (var item in data.Value)
+                {
+                    Console.WriteLine("First Name :" + item.FirstName + "\n" + "Last Name :" + item.LastName + "\n" + "Address :" + item.Address + "\n" + "City :" + item.City + "\n" + "State :" + item.State + "\n" + "Zip Code :" + item.zip + "\n" + "Phone Number :" + item.PhoneNumber + "\n" + "Mail Id :" + item.Email);
+                }
+
+
+            }
         }
 
         public void DisplayData()

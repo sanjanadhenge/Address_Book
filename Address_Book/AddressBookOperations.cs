@@ -76,6 +76,19 @@ namespace Address_Book
             Console.WriteLine("State Data----------------------->");
             DisplayData(state);
         }
+        public void SortDict()
+        {
+            List<Contact> result = new List<Contact>();
+            foreach (var data in dict)
+            {
+                foreach (var item in data.Value)
+                {
+                    result = data.Value.OrderBy(x => x.FirstName).ToList();
+                }
+            }
+            Display(result);
+        }
+
         public void ByCity(string cityname)
         {
             var result = city.Keys.Where(x => x.Equals(cityname)).ToList();
@@ -127,6 +140,13 @@ namespace Address_Book
                 }
             }
 
+        }
+        public void Display(List<Contact> list)
+        {
+            foreach (var data in list)
+            {
+                Console.WriteLine("First Name :" + data.FirstName + "\n" + "Last Name :" + data.LastName + "\n" + "Address :" + data.Address + "\n" + "City :" + contact.City + "\n" + "State :" + data.State + "\n" + "Zip Code :" + data.zip + "\n" + "Phone Number :" + contact.PhoneNumber + "\n" + "Mail Id :" + data.Email);
+            }
         }
         public void DisplayData(Dictionary<string, List<Contact>> dict)
         {

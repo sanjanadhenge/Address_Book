@@ -117,8 +117,9 @@ namespace Address_Book
                         }
                         break;
                     case 7:
-                        flag = false;
+                        addressbook.SortDict();
                         break;
+                    case 8:
                         flag = false;
                         break;
                 }

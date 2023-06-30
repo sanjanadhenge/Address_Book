@@ -20,6 +20,10 @@ namespace Address_Book
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
+                        Console.WriteLine("Select Option \n1. Add Contact\n 2.Edit Contact\n 3.Delete Contact\n 4.Serach using city \n 5.Display City List Or State List \n 6.Get No of Contact by City or State n 7.Sort Dictionary using persons name \n 8.Sort Dictionary by city ,state or Zipcode \n 9.Exit");
+                         int option1 = Convert.ToInt32(Console.ReadLine());
+                switch (option1)
+                {
                     case 1:
                         Console.WriteLine("Enter the number of Address book you want to add");
                         int N = Convert.ToInt32(Console.ReadLine());
@@ -68,6 +72,7 @@ namespace Address_Book
                             }
 
                         }
+
 
                         break;
                     case 5:
@@ -120,9 +125,35 @@ namespace Address_Book
                         addressbook.SortDict();
                         break;
                     case 8:
+                        bool flag3 = true;
+                        while (flag3)
+                        {
+                            Console.WriteLine("Select an Option \n 1.Sort By City \n 2..Sort by State \n 3.Sort by ZipCode \n 4.Exit");
+                            int opt = Convert.ToInt32(Console.ReadLine());
+                            switch (opt)
+                            {
+                                case 1:
+                                    addressbook.SortCity();
+                                    break;
+                                case 2:
+                                    addressbook.SortState();
+                                    break;
+                                case 3:
+                                    addressbook.SortZip();
+                                    break;
+                                case 4:
+                                    f3 = false;
+                                    break;
+                            }
+
+                        }
+                        break;
+                    case 9:
                         flag = false;
                         break;
                 }
+            
+            
             }
         }
     }

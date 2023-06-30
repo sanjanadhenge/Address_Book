@@ -8,6 +8,7 @@ namespace Address_Book
 {
     internal class AddressBookOperations
     {
+
         Contact contact = new Contact();
 
         Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>();
@@ -69,6 +70,36 @@ namespace Address_Book
 
             }
             return false;
+        }
+        public void SearchByCity(string city)
+        {
+
+            foreach (var data in dict)
+            {
+                foreach (var item in data.Value)
+                {
+                    if (item.City.Equals(city))
+                    {
+                        Console.WriteLine("First Name :" + item.FirstName + "\n" + "Last Name :" + item.LastName + "\n" + "Address :" + item.Address + "\n" + "City :" + item.City + "\n" + "State :" + item.State + "\n" + "Zip Code :" + item.zip + "\n" + "Phone Number :" + item.PhoneNumber + "\n" + "Mail Id :" + item.Email);
+                    }
+                }
+            }
+
+        }
+        public void SearchByState(string state)
+        {
+
+            foreach (var data in dict)
+            {
+                foreach (var item in data.Value)
+                {
+                    if (item.City.Equals(state))
+                    {
+                        Console.WriteLine("First Name :" + item.FirstName + "\n" + "Last Name :" + item.LastName + "\n" + "Address :" + item.Address + "\n" + "City :" + item.City + "\n" + "State :" + item.State + "\n" + "Zip Code :" + item.zip + "\n" + "Phone Number :" + item.PhoneNumber + "\n" + "Mail Id :" + item.Email);
+                    }
+                }
+            }
+
         }
 
         public void DisplayData()

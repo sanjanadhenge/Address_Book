@@ -16,7 +16,7 @@ namespace Address_Book
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Select Option \n1. Add Contact\n 2. Edit Contact\n 3. Delete Contact\n 4.Exit\n");
+                Console.WriteLine("Select Option \n1. Add Contact\n 2.Edit Contact\n 3.Delete Contact\n 4.Serach using city \n 5.Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -45,6 +45,32 @@ namespace Address_Book
                         addressbook.DisplayData();
                         break;
                     case 4:
+                        bool f = true;
+                        while (f)
+                        {
+                            Console.WriteLine("Select an Option \n 1.Search using City \n 2.Search using State \n 3.Exit");
+                            int opt = Convert.ToInt32(Console.ReadLine());
+                            switch (opt)
+                            {
+                                case 1:
+                                    Console.WriteLine("Enter Name of city");
+                                    string city = Console.ReadLine();
+                                    addressbook.SearchByCity(city);
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Enter Name of state");
+                                    string state = Console.ReadLine();
+                                    addressbook.SearchByState(state);
+                                    break;
+                                case 3:
+                                    f = false;
+                                    break;
+                            }
+
+                        }
+
+                        break;
+                    case 5:
                         flag = false;
                         break;
                 }

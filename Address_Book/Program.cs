@@ -12,7 +12,7 @@ namespace Address_Book
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To Address Book ");
-           AddressBookOperations addressbook = new AddressBookOperations();
+            AddressBookOperations addressbook = new AddressBookOperations();
             bool flag = true;
             while (flag)
             {
@@ -21,6 +21,7 @@ namespace Address_Book
                 switch (option)
                 {
                     case 1:
+                        //Add Multiple persons to address book
                         Console.WriteLine("Enter the number of contacts to add");
                         int N = Convert.ToInt32(Console.ReadLine());
                         for (int i = 0; i < N; i++)

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +53,7 @@ namespace Address_Book
             }
             dict.Add(key, Data);
             WriteToFile(@"C:\Users\SOURABH\Desktop\RFP\Address_Book\Address_Book\TextFile1.txt");
+            WriteFileCSV(@"C:\Users\SOURABH\Desktop\RFP\Address_Book\Address_Book\Data.csv");
         }
         public void WriteToFile(string filePath)
         {
@@ -65,6 +68,28 @@ namespace Address_Book
                     }
 
 
+                }
+            }
+        }
+        public void WriteFileCSV(string filePath)
+        {
+            using (var writer = new StreamWriter(filePath))
+            using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csvWriter.WriteRecords(dict);
+            }
+
+        }
+        public void ReadCSV(string filePath)
+        {
+            List<Contact> contacts = new List<Contact>();
+            using (var reader = new StreamReader(filePath))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                contacts = csv.GetRecords<Contact>().ToList();
+                foreach (var item in contacts)
+                {
+                    Console.WriteLine("First Name :" + item.FirstName + "\n" + "Last Name :" + item.LastName + "\n" + "Address :" + item.Address + "\n" + "City :" + item.City + "\n" + "State :" + item.State + "\n" + "Zip Code :" + item.zip + "\n" + "Phone Number :" + item.PhoneNumber + "\n" + "Mail Id :" + item.Email);
                 }
             }
         }

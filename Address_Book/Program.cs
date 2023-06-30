@@ -15,6 +15,7 @@ namespace Address_Book
             AddressBookOperations addressBook = new AddressBookOperations();
             addressBook.Add();
             addressBook.Display();
+            addressBook.Edit();
         }
     }
 }

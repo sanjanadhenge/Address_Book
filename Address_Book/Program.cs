@@ -21,21 +21,28 @@ namespace Address_Book
                 switch (option)
                 {
                     case 1:
-                        //Add Multiple persons to address book
-                        Console.WriteLine("Enter the number of contacts to add");
+                        Console.WriteLine("Enter the number of Address book you want to add");
                         int N = Convert.ToInt32(Console.ReadLine());
                         for (int i = 0; i < N; i++)
                         {
-                            addressbook.Add();
+                            addressbook.AddToDict();
                         }
-                        addressbook.Display();
+                        addressbook.DisplayData();
                         break;
                     case 2:
-                        addressbook.Edit();
+                        Console.WriteLine("Enter UniqueName");
+                        string unique = Console.ReadLine();
+                        Console.WriteLine("Enter Name");
+                        string name = Console.ReadLine();
+                        addressbook.Edit(name, unique);
                         break;
                     case 3:
-                        addressbook.Delete();
-                        addressbook.Display();
+                        Console.WriteLine("Enter UniqueName");
+                        string unique1 = Console.ReadLine();
+                        Console.WriteLine("Enter Name");
+                        string name1 = Console.ReadLine();
+                        addressbook.Delete(name1, unique1);
+                        addressbook.DisplayData();
                         break;
                     case 4:
                         flag = false;

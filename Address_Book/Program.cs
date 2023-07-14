@@ -166,7 +166,7 @@ namespace Address_Book
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Select an Option \n 1.Get Records \n 2.Add Data \n 3.Delete Data \n 4.Update Data Data \n 5.Data Within given time \n 6.Exit");
+                Console.WriteLine("Select an Option \n 1.Get Records \n 2.Add Data \n 3.Delete Data \n 4.Update Data Data \n 5.Data Within given time \n 6.Retrive data by city or state \n 7.Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -204,6 +204,32 @@ namespace Address_Book
                         operation.GetDataWithinTimePeriod(fromDate, ToDate);
                         break;
                     case 6:
+                        bool f = true;
+                        while (f)
+                        {
+                            Console.WriteLine("Select option \n 1.Search by city \n 2.Search by state \n 3.exit");
+                            int option1 = Convert.ToInt32(Console.ReadLine());
+                            switch (option1)
+                            {
+
+                                case 1:
+                                    Console.WriteLine("Enter City");
+                                    string city = Console.ReadLine();
+                                    operation.RetriveDataByCity(city);
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Enter State");
+                                    string State = Console.ReadLine();
+                                    operation.RetriveDataByCity(State);
+                                    break;
+                                case 3:
+                                    f = false;
+                                    break;
+                            }
+
+                        }
+                        break;
+                    case 7:
                         flag = false;
                         break;
                 }

@@ -12,20 +12,20 @@ namespace Address_Book
     internal class AddressBookOperations
     {
 
-        Contact contact = new Contact();
+        Contacts contact = new Contacts();
 
-        Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>();
-        public Dictionary<string, List<Contact>> city = new Dictionary<string, List<Contact>>();
-        public Dictionary<string, List<Contact>> state = new Dictionary<string, List<Contact>>();
-        public Dictionary<string, List<Contact>> zipCode = new Dictionary<string, List<Contact>>();
+        Dictionary<string, List<Contacts>> dict = new Dictionary<string, List<Contacts>>();
+        public Dictionary<string, List<Contacts>> city = new Dictionary<string, List<Contacts>>();
+        public Dictionary<string, List<Contacts>> state = new Dictionary<string, List<Contacts>>();
+        public Dictionary<string, List<Contacts>> zipCode = new Dictionary<string, List<Contacts>>();
         char c = 'A';
         public void Add(int N, string key)
         {
-            List<Contact> Data = new List<Contact>();
+            List<Contacts> Data = new List<Contacts>();
             for (int i = 0; i < N; i++)
             {
 
-                Contact contact = new Contact();
+                Contacts contact = new Contacts();
                 Console.WriteLine("Enter First Name");
                 contact.FirstName = Console.ReadLine();
                 Console.WriteLine("Enter Last Name");
@@ -84,11 +84,11 @@ namespace Address_Book
         }
         public void ReadCSV(string filePath)
         {
-            List<Contact> contacts = new List<Contact>();
+            List<Contacts> contacts = new List<Contacts>();
             using (var reader = new StreamReader(filePath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                contacts = csv.GetRecords<Contact>().ToList();
+                contacts = csv.GetRecords<Contacts>().ToList();
                 foreach (var item in contacts)
                 {
                     Console.WriteLine("First Name :" + item.FirstName + "\n" + "Last Name :" + item.LastName + "\n" + "Address :" + item.Address + "\n" + "City :" + item.City + "\n" + "State :" + item.State + "\n" + "Zip Code :" + item.zip + "\n" + "Phone Number :" + item.PhoneNumber + "\n" + "Mail Id :" + item.Email);
@@ -102,7 +102,7 @@ namespace Address_Book
         }
         public void ReadJson(string filePath)
         {
-            Dictionary<string, List<Contact>> records = JsonConvert.DeserializeObject<Dictionary<string, List<Contact>>>(File.ReadAllText(filePath));
+            Dictionary<string, List<Contacts>> records = JsonConvert.DeserializeObject<Dictionary<string, List<Contacts>>>(File.ReadAllText(filePath));
             foreach (var data in records)
             {
                 foreach (var item in data.Value)
@@ -152,7 +152,7 @@ namespace Address_Book
         }
         public void SortDict()
         {
-            List<Contact> result = new List<Contact>();
+            List<Contacts> result = new List<Contacts>();
             foreach (var data in dict)
             {
                 foreach (var item in data.Value)
@@ -230,14 +230,14 @@ namespace Address_Book
             }
 
         }
-        public void Display(List<Contact> list)
+        public void Display(List<Contacts> list)
         {
             foreach (var data in list)
             {
                 Console.WriteLine("First Name :" + data.FirstName + "\n" + "Last Name :" + data.LastName + "\n" + "Address :" + data.Address + "\n" + "City :" + contact.City + "\n" + "State :" + data.State + "\n" + "Zip Code :" + data.zip + "\n" + "Phone Number :" + contact.PhoneNumber + "\n" + "Mail Id :" + data.Email);
             }
         }
-        public void DisplayData(Dictionary<string, List<Contact>> dict)
+        public void DisplayData(Dictionary<string, List<Contacts>> dict)
         {
             foreach (var data in dict)
             {
@@ -335,7 +335,7 @@ namespace Address_Book
 
         public void Delete(string name, string uniquename)
         {
-            Contact contact = new Contact();
+            Contacts contact = new Contacts();
 
             foreach (var item in dict)
             {

@@ -86,3 +86,45 @@ select * from Type;
 
 --UC13
 select * from RecordsDB;
+
+
+Go
+Create Procedure AddData
+(
+@FirstName VarChar(10),
+@LastName  VarChar(10),
+@Adresss  VarChar(30),
+@City  VarChar(20),
+@State  VarChar(20),
+@Zip  VarChar(10),
+@Phone VarChar(10),
+@Email  VarChar(30)
+
+)
+as
+begin
+Insert into RecordsDB  values(@FirstName,@LastName,@Adresss,@City ,@State,@Zip,@Phone,@Email)
+End;
+
+
+Go
+Create Procedure DeleteData
+(
+@ID int
+)
+as
+begin
+Delete from RecordsDB where ID=@ID;
+End;
+
+
+Go
+Create Procedure UpdateData
+(
+@EmpId int,
+@Email VarChar(30)
+)
+as
+begin
+Update RecordsDB set Email=@Email where ID = @EmpId
+End;

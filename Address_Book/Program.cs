@@ -9,156 +9,198 @@ namespace Address_Book
 {
     public class program
     {
-        static void Main(string[] args)
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Welcome To Address Book ");
+        //    AddressBookOperations addNew = new AddressBookOperations();
+        //    bool flag = true;
+        //    while (flag)
+        //    {
+        //        Console.WriteLine("Select Option \n1. Add Contact\n 2.Edit Contact\n 3.Delete Contact\n 4.Serach using city \n 5.Display City List Or State List \n 6.Get No of Contact by City or State n 7.Sort Dictionary using persons name \n 8.Sort Dictionary by city ,state or Zipcode \n 9.ReadFile \n 10.ReadCSV \n 11.ReadJson \n 12.Exit");
+        //        int option = Convert.ToInt32(Console.ReadLine());
+        //        switch (option)
+        //        {
+        //            case 1:
+        //                Console.WriteLine("Enter the number of Address book you want to add");
+        //                int N = Convert.ToInt32(Console.ReadLine());
+        //                for (int i = 0; i < N; i++)
+        //                {
+        //                    addNew.AddToDict();
+        //                }
+        //                addNew.DisplayData();
+        //                break;
+        //            case 2:
+        //                Console.WriteLine("Enter UniqueName");
+        //                string unique = Console.ReadLine();
+        //                Console.WriteLine("Enter Name");
+        //                string name = Console.ReadLine();
+        //                addNew.Edit(name, unique);
+        //                break;
+        //            case 3:
+        //                Console.WriteLine("Enter UniqueName");
+        //                string unique1 = Console.ReadLine();
+        //                Console.WriteLine("Enter Name");
+        //                string name1 = Console.ReadLine();
+        //                addNew.Delete(name1, unique1);
+        //                addNew.DisplayData();
+        //                break;
+        //            case 4:
+        //                bool f = true;
+        //                while (f)
+        //                {
+        //                    Console.WriteLine("Select an Option \n 1.Search using City \n 2.Search using State \n 3.Exit");
+        //                    int opt = Convert.ToInt32(Console.ReadLine());
+        //                    switch (opt)
+        //                    {
+        //                        case 1:
+        //                            Console.WriteLine("Enter Name of city");
+        //                            string city = Console.ReadLine();
+        //                            addNew.SearchByCity(city);
+        //                            break;
+        //                        case 2:
+        //                            Console.WriteLine("Enter Name of state");
+        //                            string state = Console.ReadLine();
+        //                            addNew.SearchByState(state);
+        //                            break;
+        //                        case 3:
+        //                            f = false;
+        //                            break;
+        //                    }
+
+        //                }
+
+        //                break;
+        //            case 5:
+        //                bool f2 = true;
+        //                while (f2)
+        //                {
+        //                    Console.WriteLine("Select an Option \n 1.Data using City \n 2.Data using State \n 3.Exit");
+        //                    int opt = Convert.ToInt32(Console.ReadLine());
+        //                    switch (opt)
+        //                    {
+        //                        case 1:
+        //                            addNew.DisplayCity();
+        //                            break;
+        //                        case 2:
+        //                            addNew.DisplayState();
+        //                            break;
+        //                        case 3:
+        //                            f2 = false;
+        //                            break;
+        //                    }
+
+        //                }
+        //                break;
+        //            case 6:
+        //                bool f3 = true;
+        //                while (f3)
+        //                {
+        //                    Console.WriteLine("Select an Option \n 1.Get no of Contact by city \n 2..Get no of Contact by city \n 3.Exit");
+        //                    int opt = Convert.ToInt32(Console.ReadLine());
+        //                    switch (opt)
+        //                    {
+        //                        case 1:
+        //                            Console.WriteLine("Enter Name of city");
+        //                            string cityName = Console.ReadLine();
+        //                            addNew.ByCity(cityName);
+        //                            break;
+        //                        case 2:
+        //                            Console.WriteLine("Enter Name of State");
+        //                            string stateName = Console.ReadLine();
+        //                            addNew.ByState(stateName);
+        //                            break;
+        //                        case 3:
+        //                            f3 = false;
+        //                            break;
+        //                    }
+
+        //                }
+        //                break;
+        //            case 7:
+        //                addNew.SortDict();
+        //                break;
+        //            case 8:
+        //                bool f4 = true;
+        //                while (f4)
+        //                {
+        //                    Console.WriteLine("Select an Option \n 1.Sort By City \n 2..Sort by State \n 3.Sort by ZipCode \n 4.Exit");
+        //                    int opt = Convert.ToInt32(Console.ReadLine());
+        //                    switch (opt)
+        //                    {
+        //                        case 1:
+        //                            addNew.SortCity();
+        //                            break;
+        //                        case 2:
+        //                            addNew.SortState();
+        //                            break;
+        //                        case 3:
+        //                            addNew.SortZip();
+        //                            break;
+        //                        case 4:
+        //                            f4 = false;
+        //                            break;
+        //                    }
+
+        //                }
+        //                break;
+        //            case 9:
+        //                addNew.ReadFile(@"C:\Users\SOURABH\Desktop\Day 3\AddressBook\AddressBook\AddressBookFile.txt");
+        //                break;
+        //            case 10:
+        //                addNew.ReadCSV(@"C:\Users\SOURABH\Desktop\Day 3\AddressBook\AddressBook\Files\Data.csv");
+        //                break;
+        //            case 11:
+        //                addNew.ReadJson(@"C:\Users\SOURABH\Desktop\Day 3\AddressBook\AddressBook\Files\Json.json");
+        //                break;
+        //            case 12:
+        //                flag = false;
+        //                break;
+
+
+        //        }
+        //    }
+        //}
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome To Address Book ");
-            AddressBookOperations addNew = new AddressBookOperations();
+            Operation operation = new Operation();
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Select Option \n1. Add Contact\n 2.Edit Contact\n 3.Delete Contact\n 4.Serach using city \n 5.Display City List Or State List \n 6.Get No of Contact by City or State n 7.Sort Dictionary using persons name \n 8.Sort Dictionary by city ,state or Zipcode \n 9.ReadFile \n 10.ReadCSV \n 11.ReadJson \n 12.Exit");
+                Console.WriteLine("Select an Option \n 1.Get Records \n 2.Add Data \n 3.Delete Data \n 4.Update Data Data \n 5.Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
+                    //UC16
                     case 1:
-                        Console.WriteLine("Enter the number of Address book you want to add");
-                        int N = Convert.ToInt32(Console.ReadLine());
-                        for (int i = 0; i < N; i++)
-                        {
-                            addNew.AddToDict();
-                        }
-                        addNew.DisplayData();
+                        operation.GetAllRecords();
                         break;
                     case 2:
-                        Console.WriteLine("Enter UniqueName");
-                        string unique = Console.ReadLine();
-                        Console.WriteLine("Enter Name");
-                        string name = Console.ReadLine();
-                        addNew.Edit(name, unique);
+                        Contacts contact = new Contacts();
+                        {
+                            contact.FirstName = "Sambhav";
+                            contact.LastName = "Dhenge";
+                            contact.Address = "1461 A ward";
+                            contact.City = "Kolhapur";
+                            contact.State = "MH";
+                            contact.zip = "416012";
+                            contact.PhoneNumber = "99754865";
+                            contact.Email = "abc@gmail.com";
+
+                        }
+                        operation.AddEmployee(contact);
                         break;
                     case 3:
-                        Console.WriteLine("Enter UniqueName");
-                        string unique1 = Console.ReadLine();
-                        Console.WriteLine("Enter Name");
-                        string name1 = Console.ReadLine();
-                        addNew.Delete(name1, unique1);
-                        addNew.DisplayData();
+                        operation.DeleteData(11);
                         break;
                     case 4:
-                        bool f = true;
-                        while (f)
-                        {
-                            Console.WriteLine("Select an Option \n 1.Search using City \n 2.Search using State \n 3.Exit");
-                            int opt = Convert.ToInt32(Console.ReadLine());
-                            switch (opt)
-                            {
-                                case 1:
-                                    Console.WriteLine("Enter Name of city");
-                                    string city = Console.ReadLine();
-                                    addNew.SearchByCity(city);
-                                    break;
-                                case 2:
-                                    Console.WriteLine("Enter Name of state");
-                                    string state = Console.ReadLine();
-                                    addNew.SearchByState(state);
-                                    break;
-                                case 3:
-                                    f = false;
-                                    break;
-                            }
-
-                        }
-
+                        operation.UpdateData(1, "Sanjana@gmail.com");
                         break;
                     case 5:
-                        bool f2 = true;
-                        while (f2)
-                        {
-                            Console.WriteLine("Select an Option \n 1.Data using City \n 2.Data using State \n 3.Exit");
-                            int opt = Convert.ToInt32(Console.ReadLine());
-                            switch (opt)
-                            {
-                                case 1:
-                                    addNew.DisplayCity();
-                                    break;
-                                case 2:
-                                    addNew.DisplayState();
-                                    break;
-                                case 3:
-                                    f2 = false;
-                                    break;
-                            }
-
-                        }
-                        break;
-                    case 6:
-                        bool f3 = true;
-                        while (f3)
-                        {
-                            Console.WriteLine("Select an Option \n 1.Get no of Contact by city \n 2..Get no of Contact by city \n 3.Exit");
-                            int opt = Convert.ToInt32(Console.ReadLine());
-                            switch (opt)
-                            {
-                                case 1:
-                                    Console.WriteLine("Enter Name of city");
-                                    string cityName = Console.ReadLine();
-                                    addNew.ByCity(cityName);
-                                    break;
-                                case 2:
-                                    Console.WriteLine("Enter Name of State");
-                                    string stateName = Console.ReadLine();
-                                    addNew.ByState(stateName);
-                                    break;
-                                case 3:
-                                    f3 = false;
-                                    break;
-                            }
-
-                        }
-                        break;
-                    case 7:
-                        addNew.SortDict();
-                        break;
-                    case 8:
-                        bool f4 = true;
-                        while (f4)
-                        {
-                            Console.WriteLine("Select an Option \n 1.Sort By City \n 2..Sort by State \n 3.Sort by ZipCode \n 4.Exit");
-                            int opt = Convert.ToInt32(Console.ReadLine());
-                            switch (opt)
-                            {
-                                case 1:
-                                    addNew.SortCity();
-                                    break;
-                                case 2:
-                                    addNew.SortState();
-                                    break;
-                                case 3:
-                                    addNew.SortZip();
-                                    break;
-                                case 4:
-                                    f4 = false;
-                                    break;
-                            }
-
-                        }
-                        break;
-                    case 9:
-                        addNew.ReadFile(@"C:\Users\SOURABH\Desktop\Day 3\AddressBook\AddressBook\AddressBookFile.txt");
-                        break;
-                    case 10:
-                        addNew.ReadCSV(@"C:\Users\SOURABH\Desktop\Day 3\AddressBook\AddressBook\Files\Data.csv");
-                        break;
-                    case 11:
-                        addNew.ReadJson(@"C:\Users\SOURABH\Desktop\Day 3\AddressBook\AddressBook\Files\Json.json");
-                        break;
-                    case 12:
                         flag = false;
                         break;
-
-
                 }
             }
+
         }
     }
     

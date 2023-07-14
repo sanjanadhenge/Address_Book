@@ -166,11 +166,11 @@ namespace Address_Book
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Select an Option \n 1.Get Records \n 2.Add Data \n 3.Delete Data \n 4.Update Data Data \n 5.Exit");
+                Console.WriteLine("Select an Option \n 1.Get Records \n 2.Add Data \n 3.Delete Data \n 4.Update Data Data \n 5.Data Within given time \n 6.Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
-                    //UC16
+
                     case 1:
                         operation.GetAllRecords();
                         break;
@@ -197,10 +197,18 @@ namespace Address_Book
                         operation.UpdateData(1, "Sanjana@gmail.com");
                         break;
                     case 5:
+                        Console.WriteLine("Enter start date");
+                        DateTime fromDate = DateTime.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter End date");
+                        DateTime ToDate = DateTime.Parse(Console.ReadLine());
+                        operation.GetDataWithinTimePeriod(fromDate, ToDate);
+                        break;
+                    case 6:
                         flag = false;
                         break;
                 }
             }
+
 
         }
     }

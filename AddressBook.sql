@@ -128,3 +128,14 @@ as
 begin
 Update RecordsDB set Email=@Email where ID = @EmpId
 End;
+Alter table RecordsDB Add StartDate Date;
+Update RecordsDB set  StartDate='2021-07-15'where FirstName = 'Sanjana';
+Update RecordsDB set  StartDate='2022-05-20'where FirstName = 'C';
+Update RecordsDB set  StartDate='2022-06-9'where FirstName = 'E';
+Update RecordsDB set  StartDate='2021-07-16'where FirstName = 'G';
+Update RecordsDB set  StartDate='2023-01-17'where FirstName = 'I';
+Update RecordsDB set  StartDate='2021-07-19'where FirstName = 'K';
+Update RecordsDB set  StartDate='2023-03-15'where FirstName = 'M';
+Update RecordsDB set  StartDate='2021-06-6'where FirstName = 'O';
+Update RecordsDB set  StartDate='2023-02-15'where FirstName = 'Radha';
+Update RecordsDB set  StartDate='2021-07-15'where FirstName = 'Sambhav';
